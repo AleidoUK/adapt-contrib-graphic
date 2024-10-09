@@ -20,6 +20,15 @@
         },
         "_isScrollable": false,
         "_defaultScrollPercent": 0,
+        "_popup": {
+            "_isEnabled": true,
+            "title": "Popup title",
+            "body": "Popup content here\u2026",
+            "_graphic": {
+                "src": "course/en/images/1150x300.jpg",
+                "alt": ""
+            }
+        },
         "_pageLevelProgress": {
             "_isEnabled": true
         }

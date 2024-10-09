@@ -1,4 +1,7 @@
+import Adapt from 'core/js/adapt';
+import notify from 'core/js/notify';
 import ComponentView from 'core/js/views/componentView';
+import GraphicPopupView from './graphicPopupView';
 
 class GraphicView extends ComponentView {
 
@@ -12,7 +15,8 @@ class GraphicView extends ComponentView {
   events() {
     return {
       'click .js-graphic-link': 'onClick',
-      'keydown .js-graphic-scrollbar': 'onKeyDown'
+      'keydown .js-graphic-scrollbar': 'onKeyDown',
+      'click .js-graphic-popup': 'openPopup'
     };
   }
 
@@ -21,6 +25,9 @@ class GraphicView extends ComponentView {
       this.setReadyStatus();
       this.setupInviewCompletion('.graphic__widget');
       this.setupScrollable();
+
+      if(this.model.get('_graphic') && this.model.get('_graphic')._url) this.$('.graphic__link-icon').addClass('is-visible');
+      if(this.model.get('_popup') && this.model.get('_popup')._isEnabled === true) this.$('.graphic__popup-icon').addClass('is-visible');
     });
   }
 
@@ -81,6 +88,37 @@ class GraphicView extends ComponentView {
     const isRouterNavigation = (url.substr(0, 1) === '#');
     if (isRouterNavigation) return Backbone.history.navigate(url, { trigger: true });
     window.location.href = url;
+  }
+
+  openPopup(event) {
+    if (this._isPopupOpen) return;
+
+    this._isPopupOpen = true;
+
+    this.$('.graphic__popup-icon').addClass('is-selected');
+
+    const popupModel = new Backbone.Model(this.model.get('_popup'));
+
+    this._popupView = new GraphicPopupView({
+      model: popupModel
+    });
+
+    notify.popup({
+      _view: this._popupView,
+      _isCancellable: true,
+      _showCloseButton: true,
+      _closeOnBackdrop: true,
+      title: popupModel.get('title'),
+      _classes: ''
+    });
+
+    this.listenToOnce(Adapt, {
+      'popup:closed': this.onPopupClosed
+    });
+  }
+
+  onPopupClosed() {
+    this._isPopupOpen = false;
   }
 
   preRemove() {

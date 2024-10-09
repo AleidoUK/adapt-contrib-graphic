@@ -36,12 +36,17 @@ export default function Graphic(props) {
 
       <div className='component__widget graphic__widget' {...scrollableProperties}>
 
+      <div className="graphic__link-icon icon js-graphic-link"></div>
+      <div className="graphic__popup-icon icon js-graphic-popup"></div>
+
         <LinkWrapper
           href = {_graphic._url}
           target = {_graphic._target || null}
           className = 'graphic__link js-graphic-link'
           role = 'link'
         >
+
+          
 
           <templates.image {..._graphic}
             aria-hidden={_isScrollable}
