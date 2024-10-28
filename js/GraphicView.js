@@ -104,6 +104,7 @@ class GraphicView extends ComponentView {
     });
 
     notify.popup({
+      _id: this.model.get('_id'),
       _view: this._popupView,
       _isCancellable: true,
       _showCloseButton: true,

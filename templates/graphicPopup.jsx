@@ -9,8 +9,6 @@ export default function GraphicPopup(props) {
   } = props;
 
   useEffect(() => {
-    console.log(props);
-
     const focusElement = $(`.graphic-popup__item`);
     a11y.focusFirst(focusElement);
   });
@@ -20,26 +18,26 @@ export default function GraphicPopup(props) {
 
       <div className='graphic-popup__item'>
 
-      <div className="graphic-popup__item-content">
-      <div className="graphic-popup__item-content-inner">
+        <div className="graphic-popup__item-content">
+          <div className="graphic-popup__item-content-inner">
 
-          {props.body &&
-          <div className="graphic-popup__item-body">
-            <div
-              className="graphic-popup__item-body-inner"
-              dangerouslySetInnerHTML={{ __html: compile(props.body) }}
+            {props.body &&
+            <div className="graphic-popup__item-body">
+              <div
+                className="graphic-popup__item-body-inner"
+                dangerouslySetInnerHTML={{ __html: compile(props.body) }}
+              />
+            </div>
+            }
+
+            <templates.image {...props._graphic}
+              classNamePrefixSeparator='__item-'
+              classNamePrefixes={['component-item', 'graphic-popup']}
+              attributionClassNamePrefixes={['component', 'graphic-popup']}
             />
+
           </div>
-          }
-
-          <templates.image {...props._graphic}
-            classNamePrefixSeparator='__item-'
-            classNamePrefixes={['component-item', 'graphic-popup']}
-            attributionClassNamePrefixes={['component', 'graphic-popup']}
-          />
-
-      </div>
-      </div>
+        </div>
 
       </div>
 
