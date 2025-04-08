@@ -25,14 +25,19 @@
       }
 
       border-radius: 100%;
-      padding: 0.5rem;
+      padding: @icon-padding / 2;
 
-      width: 2.5rem;
-      height: 2.5rem;
+      width: @icon-size + @icon-padding;
+      height: @icon-size + @icon-padding;
 
       position: absolute;
-      top: 2rem;
-      right: 2rem;
+      top: @icon-padding;
+      right: @icon-padding;
+
+      .dir-rtl & {
+        right: inherit;
+        left: @icon-padding;
+      }
 
       .icon-search;
 
