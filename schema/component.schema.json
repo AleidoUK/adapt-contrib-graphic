@@ -38,6 +38,15 @@
             "small"
           ],
           "properties": {
+            "title": {
+              "type": "string",
+              "title": "Image title",
+              "description": "This title appears below the image.",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            },
             "alt": {
               "type": "string",
               "title": "Alternative text",

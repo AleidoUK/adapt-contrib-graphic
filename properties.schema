@@ -43,6 +43,16 @@
       "required": true,
       "title": "Graphic",
       "properties": {
+        "title": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Image title",
+          "inputType": "Text",
+          "validators": [],
+          "help": "This title appears below the image.",
+          "translatable": true
+        },
         "alt": {
           "type": "string",
           "required": false,
@@ -190,6 +200,16 @@
               "inputType": "Text",
               "validators": [],
               "help": "Text to be displayed as an attribution for the popup image",
+              "translatable": true
+            },
+            "title": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Image title",
+              "inputType": "Text",
+              "validators": [],
+              "help": "This title appears below the image.",
               "translatable": true
             },
             "classes": {

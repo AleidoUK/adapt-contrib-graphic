@@ -36,6 +36,16 @@ export default function GraphicPopup(props) {
               attributionClassNamePrefixes={['component', 'graphic-popup']}
             />
 
+            {props._graphic.title &&
+            <div
+              className="graphic__image-title"
+            >
+              <div className="graphic__image-title-inner">
+                {props._graphic.title}
+              </div>
+            </div>
+            }
+
           </div>
         </div>
 

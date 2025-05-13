@@ -59,6 +59,16 @@ export default function Graphic(props) {
             ]}
           />
 
+          {_graphic.title &&
+          <div
+            className="graphic__image-title"
+          >
+            <div className="graphic__image-title-inner">
+              {_graphic.title}
+            </div>
+          </div>
+          }
+
           {_graphic.longdescription &&
           <div
             id={`graphic__longdescription__${_id}`}
