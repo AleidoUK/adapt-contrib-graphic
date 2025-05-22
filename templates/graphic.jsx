@@ -1,5 +1,5 @@
 import React from 'react';
-import { templates } from 'core/js/reactHelpers';
+import { compile, templates } from 'core/js/reactHelpers';
 
 const LinkWrapper = ({ href, children, target, className, role }) =>
   href
@@ -63,8 +63,7 @@ export default function Graphic(props) {
           <div
             className="graphic__image-title"
           >
-            <div className="graphic__image-title-inner">
-              {_graphic.title}
+            <div className="graphic__image-title-inner" dangerouslySetInnerHTML={{ __html: compile(_graphic.title) }}>
             </div>
           </div>
           }
