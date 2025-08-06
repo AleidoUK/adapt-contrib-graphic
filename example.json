@@ -25,6 +25,7 @@
             "_isEnabled": true,
             "title": "Popup title",
             "body": "Popup content here\u2026",
+            "iconAriaLabel": "Open popup",
             "_graphic": {
                 "src": "course/en/images/1150x300.jpg",
                 "alt": "",

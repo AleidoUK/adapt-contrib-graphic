@@ -5,6 +5,10 @@ import GraphicPopupView from './graphicPopupView';
 
 class GraphicView extends ComponentView {
 
+  preRender() {
+    this.openPopup = this.openPopup.bind(this);
+  }
+
   className() {
     return [
       super.className(),
@@ -15,8 +19,7 @@ class GraphicView extends ComponentView {
   events() {
     return {
       'click .js-graphic-link': 'onClick',
-      'keydown .js-graphic-scrollbar': 'onKeyDown',
-      'click .js-graphic-popup': 'openPopup'
+      'keydown .js-graphic-scrollbar': 'onKeyDown'
     };
   }
 

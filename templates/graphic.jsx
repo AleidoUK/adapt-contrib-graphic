@@ -1,5 +1,5 @@
 import React from 'react';
-import { compile, templates } from 'core/js/reactHelpers';
+import { classes, compile, templates } from 'core/js/reactHelpers';
 
 const LinkWrapper = ({ href, children, target, className, role }) =>
   href
@@ -9,9 +9,11 @@ const LinkWrapper = ({ href, children, target, className, role }) =>
 export default function Graphic(props) {
   const {
     _id,
+    openPopup,
     _isScrollable,
     _scrollPercent,
     _graphic,
+    _popup,
     _globals
   } = props;
 
@@ -36,8 +38,17 @@ export default function Graphic(props) {
 
       <div className='component__widget graphic__widget' {...scrollableProperties}>
 
-      <div className="graphic__link-icon icon js-graphic-link"></div>
-      <div className="graphic__popup-icon icon js-graphic-popup"></div>
+      <div className="graphic__link-icon icon js-graphic-link" aria-hidden="true"></div>
+
+      <button
+        className={classes([
+          'graphic__popup-icon'
+        ])}
+        onClick={openPopup}
+        aria-label={_popup.iconAriaLabel}
+      >
+        <span className="icon icon-search" aria-hidden="true" />
+      </button>
 
         <LinkWrapper
           href = {_graphic._url}

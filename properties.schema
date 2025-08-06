@@ -170,6 +170,15 @@
           "help": "Body text displayed in the popup",
           "translatable": true
         },
+        "iconAriaLabel": {
+          "type": "string",
+          "required": false,
+          "default": "Open popup",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Aria label for the button icon",
+          "translatable": true
+        },
         "_graphic": {
           "type": "object",
           "required": false,
