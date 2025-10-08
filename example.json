@@ -23,8 +23,9 @@
         "_defaultScrollPercent": 0,
         "_popup": {
             "_isEnabled": true,
+            "_isInline": false,
             "title": "Popup title",
-            "body": "Popup content here\u2026",
+            "body": "Popup content here.",
             "iconAriaLabel": "Open popup",
             "_graphic": {
                 "src": "course/en/images/1150x300.jpg",

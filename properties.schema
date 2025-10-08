@@ -152,6 +152,14 @@
           "validators": [],
           "title": "Popup is enabled"
         },
+        "_isInline": {
+          "type": "boolean",
+          "default": false,
+          "isSetting": true,
+          "inputType": "Checkbox",
+          "validators": [],
+          "title": "Show content inline"
+        },
         "title": {
           "type": "string",
           "required": false,

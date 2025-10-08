@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import a11y from 'core/js/a11y';
 import notify from 'core/js/notify';
 import ComponentView from 'core/js/views/componentView';
 import GraphicPopupView from './graphicPopupView';
@@ -96,6 +97,14 @@ class GraphicView extends ComponentView {
   openPopup(event) {
     if (this._isPopupOpen) return;
 
+    if (this.model.get('_popup')?._isInline) {
+      this.showInline();
+    } else {
+      this.showPopup();
+    }
+  }
+
+  showPopup() {
     this._isPopupOpen = true;
 
     this.$('.graphic__popup-icon').addClass('is-selected');
@@ -119,6 +128,14 @@ class GraphicView extends ComponentView {
     this.listenToOnce(Adapt, {
       'popup:closed': this.onPopupClosed
     });
+  }
+
+  showInline() {
+    this.$('.graphic__inlinepopup').addClass('is-active').attr('aria-hidden', 'false');    
+    _.delay(() => {
+      a11y.focusFirst(this.$('.graphic__inlinepopup'));
+      this.$('.graphic__popup-icon').addClass('u-display-none');
+    }, 100);
   }
 
   onPopupClosed() {

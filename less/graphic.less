@@ -13,6 +13,7 @@
 
   .graphic__widget {
     position: relative;
+    overflow: hidden;
 
     .graphic__popup-icon, .graphic__link-icon {
       background-color: @item-color;
@@ -78,6 +79,38 @@
 
   :any-link {
     text-decoration: none !important;
+  }
+
+  &__inlinepopup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: @item-padding;
+    background-color: fade(@item-color-selected, 80%);
+    color: @item-color-inverted-selected;
+
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+
+    transform: translateX(100%);
+
+    .dir-rtl & {
+      right: inherit;
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &.is-active {
+      transform: translateX(0);
+    }
+  }
+
+  &__inlinepopup-title {
+    font-family: @title-family;
+    font-size: @item-title-size;
+    font-weight: @item-title-weight;
+    margin-bottom: @item-padding;
   }
 
 }

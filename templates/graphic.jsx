@@ -90,6 +90,32 @@ export default function Graphic(props) {
           </div>
           }
 
+          {(_popup._isEnabled && _popup._isInline) &&
+          <div className="graphic__inlinepopup" aria-hidden="true">
+            <div className="graphic__inlinepopup-inner">
+
+              {_popup.title &&
+              <div className="graphic__inlinepopup-title">
+                <div
+                  className="graphic__inlinepopup-title-inner"
+                  dangerouslySetInnerHTML={{ __html: compile(_popup.title) }}
+                />
+              </div>
+              }
+
+              {_popup.body &&
+              <div className="graphic__inlinepopup-body">
+                <div
+                  className="graphic__inlinepopup-inner"
+                  dangerouslySetInnerHTML={{ __html: compile(_popup.body) }}
+                />
+              </div>
+              }
+
+            </div>
+          </div>
+          }
+
         </LinkWrapper>
 
       </div>
